@@ -1,50 +1,38 @@
-# Gobuster
+# GoBuster
 
-## Instalción:
+## ¿Qué es GoBuster?
+
+Gobuster es una herramienta open source que permite la identificación de contenido web como directorios o ficheros que pudiesen estar
+accesibles u ocultos en un portal web. Esto lo realiza a través de solicitudes http con un diccionario o por fuerza bruta, y detectará
+la existencia de las mismas en función del código de respuesta obtenido.
+
+GoBuster tiene la capacidad de realizar las siguientes enumeraciones:
+
+* URIs (directorios y ficheros) en portales web.
+* Subdominios DNS con soporte para wildcard.
+* Nombres de virtual hosts en servidores web.
+* Buckets S3 de Amazon públicos.
+
+## ¿Cómo instala GoBuster?
+
+En caso de tener una distribución basada en Debian, podéis instalarlo directamente desde la terminal mediante le siguiente comando:
 
     sudo apt install gobuster
     
-## Ejecución:
+# Tipos de enumeraciones:
 
-### Busqueda de subdominios:
+Como ya indicábamos se pueden hacer 4 tipos de enumeraciones, de `URIs`, `DNS`, `vhosts` y `buckets S3` así que vamos a ver cada una de ellas.
 
-    gobuster vhost -u [Dominio de la página] -w [Directorio del diccionario] -t 200
+### Escaneo de Directorios:
 
-Ejemplo:
-
-    gobuster vhost -u http://pandora.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -t 200
-
-
-### Busqueda de directorios por fuerza bruta:
-
-    gobuster dir -u [Dominio] -w [Directorio del Diccionario] -t 200
-
-Ejemplo:
-
-    gobuster dir -u http://pandora.htb -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 200
+    gobuster dir -u http://www.ejemplo.com/ -w /ruta/del/diccionario
     
----
----
-  
-    
-<html lang="en">
-<head>
-  
-</head>
-<body>
+* `dir`: Indica que vamos a enumerar directorios.     
+* `-u`: Especifica la targeta URL.
+* `-w`: Especifica la ruta del diccionario.
 
-<script src="https://utteranc.es/client.js"
-    repo="F1r0x/gestion-comentarios"
-    issue-term="pathname"
-    theme="github-light"
-    crossorigin="anonymous"
-    async>
-</script>
-          
-    
-  </body>
-</html>
-  
-  
----
----
+Más información acerca de goBuster --> <a href="https://byte-mind.net/enumeracion-por-fuerza-bruta-con-gobuster/" style="text-decoration:none">Link</a>
+
+
+
+
